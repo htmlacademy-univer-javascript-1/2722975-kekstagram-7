@@ -14,3 +14,15 @@ const extractNumber = (value) => {
 checkStringLength('проверяемая строка', 20);
 isPalindrome('Лёша на полке клопа нашёл ');
 extractNumber('агент 007');
+
+const timeToMinutes = (value) => {
+  const [hours, minutes] = value.split(':').map(Number);
+  return hours * 60 + minutes;
+};
+
+const isMeetingWithinWorkday = (dayStart, dayEnd, meetingStart, duration) => {
+  const start = timeToMinutes(meetingStart);
+  return start >= timeToMinutes(dayStart) && start + duration <= timeToMinutes(dayEnd);
+};
+
+isMeetingWithinWorkday('08:00', '17:30', '14:00', 90);
